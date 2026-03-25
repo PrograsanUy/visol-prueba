@@ -1,0 +1,520 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #1c1c1c;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+    border-bottom: 1px solid #2f80ed;
+    padding-bottom: 5px;
+}
+
+#activeCI{
+    border-bottom: 1px solid #2f80ed;
+    padding-bottom: 5px;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* BANNER WRAPPER (fondo gris como en tu mockup) */
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* CONTENEDOR REAL DEL BANNER */
+.banner-inner {
+    width: 100%;
+    max-width: 1920px;
+    height: 550px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* IMAGEN DE FONDO */
+.banner-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    margin-top: -100px;
+    background: 
+        linear-gradient(to right, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 75%),
+        url('imagenes/fotoBanner.png');
+    background-size: cover;
+    z-index: 1;
+}
+
+/* CONTENIDO */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-left: 180px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 80px;
+}
+
+/*  */
+
+.banner-logo {
+      width: 250px;
+      margin-top: -20px;
+        margin-bottom: 10px;
+      animation: latido 2s infinite ease-in-out;
+      transform-origin: center;
+      transition: filter 0.3s ease;
+    }
+
+    /* Hover opcional */
+
+    @keyframes latido {
+      0%   { transform: scale(1); }
+      15%  { transform: scale(1.15); }
+      30%  { transform: scale(1); }
+      45%  { transform: scale(1.18); }
+      60%  { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive */
+@media (max-width: 768px) {
+
+    .banner-inner {
+    width: 100%;
+    max-width: 1920px;
+    height: 450px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+    .banner-content {
+        margin-left: 0;
+        padding-left: 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .banner-content a {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .banner-logo {
+        width: 180px;
+        margin: 0 auto;
+    }
+
+    .whatsapp-btn {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    /* 🔥 CLAVE: cambiar el degradado en mobile */
+    .banner-inner::before {
+        background: 
+            linear-gradient(rgba(47, 102, 105, 0.363) 100%, rgba(47, 102, 105, 0.07) 100%),
+            url('imagenes/fotoBanner.png');
+        background-size: cover;
+        margin-top: 0;
+    }
+
+
+    .about {
+    margin-top: -120px;
+}
+}
+
+/*  */
+
+.whatsapp-btn {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.banner-text {
+    color: #666;
+    font-size: 14px;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .banner-content {
+        padding-left: 30px;
+        align-items: flex-start; /* sigue a la izquierda */
+    }
+
+    .banner-inner::before {
+        background-position: 75% center;
+    }
+
+
+
+    .whatsapp-btn {
+        width: 180px;
+    }
+}
+
+/* ABOUT */
+.about {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.about h2 {
+    color: #2f4a8a;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    nav {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background: #1c1c1c;
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .banner {
+        height: 550px;
+    }
+
+
+
+    .whatsapp-btn {
+        width: 180px;
+    }
+}
+
+
+
+/* SERVICIOS TARJETAS */
+
+/* SECCIÓN SERVICIOS */
+.services {
+    padding: 0px 30px 0px;
+    /* background: #f5f5f5; */
+}
+
+.services-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+/* GRID */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* TARJETA */
+.service-card {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGEN */
+.service-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* CONTENIDO */
+.service-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-content h3 {
+    font-size: 16px;
+    color: #2f4a8a; /* azul similar al mockup */
+    margin-bottom: 10px;
+}
+
+.service-content p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*  */
+
+#bVMS{
+    width: 95%;
+    margin-left: 2.5%;
+    margin-bottom: 2.5%;
+    height: 30px;
+}
+
+#bVMS button{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: #10383a;
+    color: white;
+
+}
+
+#bVMS button:hover{
+    background-color: #2f6669;
+    transition: 0.3s;
+}
+
+
+/* ////// */
+
+
+/* SECCIÓN */
+.benefits {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.benefits-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.benefits h2 {
+    margin-bottom: 30px;
+    color: #2f4a8a;
+}
+
+/* CAROUSEL */
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+/* TRACK */
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* ITEM */
+.benefit {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2f666911;
+    padding: 20px;
+    border-radius: 10px;
+    color: #555;
+
+
+
+
+}
+
+/* BOTÓN */
+.next {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 0px 4px rgba(0,0,0,0.2);
+}
+
+/* DOTS */
+.dots {
+    margin-top: 15px;
+}
+
+.dots span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+    background: #bbb;
+    border-radius: 50%;
+}
+
+.dots .active {
+    background: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .benefit {
+        font-size: 14px;
+    }
+
+    .next {
+        display: none;
+    }
+
+}
+
+/* WHATSAPP FLOTANTE */
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+/* ICONO */
+.whatsapp-float img {
+    width: 32px;
+    height: 32px;
+}
+
+/* HOVER */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* ANIMACIÓN PULSO */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+    }
+}

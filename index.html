@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visol</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="imagenes/LOGO_Visol - copia.png" alt="Visol">
+        </div>
+
+        <nav id="nav">
+            <ul>
+                <li id="activeCI"><a href="#">INICIO</a></li>
+                <li><a href="#">SERVICIOS</a></li>
+                <li><a href="#">CONTACTO</a></li>
+                <li><a href="#">SOBRE NOSOTROS</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
+    </div>
+</header>
+
+
+<a href="https://wa.me/598XXXXXXXX?text=Hola%20quiero%20más%20información"
+   class="whatsapp-float"
+   target="_blank">
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+
+<!-- BANNER -->
+<section class="banner">
+    <div class="banner-inner">
+        <div class="banner-content">
+            <img src="imagenes/LOGO_Visol.png" class="banner-logo" alt="Visol">
+
+            <a href="#">
+                <img src="imagenes/BOTON-WHATSAPP_Banner.png" class="whatsapp-btn" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN QUIÉNES SOMOS -->
+<section class="about">
+    <h2>¿Quiénes Somos?</h2>
+    <p>
+        En Visol brindamos cuidado profesional y humano para personas de
+        todas las edades, tanto en el hogar como en internaciones. Conoce nuestros servicios.
+    </p>
+</section>
+
+<section class="services">
+    <div class="services-container">
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="imagenes/servicio_img1.jpg" alt="Cuidado Domiciliario">
+                <div class="service-content">
+                    <h3>Cuidado Domiciliario</h3>
+                    <p>Acompañamiento y asistencia en el hogar por horas.</p>
+                </div>
+
+                <div id="bVMS"><button>Ver Más</button></div>
+            </div>
+
+            <div class="service-card">
+                <img src="imagenes/servicio_img2.jpg" alt="Enfermería">
+                <div class="service-content">
+                    <h3>Enfermería</h3>
+                    <p>Atención profesional de enfermería en domicilio.</p>
+                </div>
+
+                <div id="bVMS"><button>Ver Más</button></div>
+            </div>
+
+            <div class="service-card">
+                <img src="imagenes/servicio_img3.jpg" alt="Acompañamiento">
+                <div class="service-content">
+                    <h3>Acompañamiento</h3>
+                    <p>Compañía y apoyo emocional en momentos de soledad.</p>
+                </div>
+                
+                <div id="bVMS"><button>Ver Más</button></div>
+            </div>
+
+            <div class="service-card">
+                <img src="imagenes/servicio_img4.jpg" alt="Apoyo Integral">
+                <div class="service-content">
+                    <h3>Apoyo Integral</h3>
+                    <p>Asistencia personalizada, con enfermeros y nutricionistas.</p>
+                </div>
+                
+                <div id="bVMS"><button>Ver Más</button></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="benefits">
+    <div class="benefits-container">
+
+        <h2>Beneficios</h2>
+
+        <div class="carousel">
+
+            <!-- BOTÓN -->
+            <button class="next" id="nextBtn">➜</button>
+
+            <!-- SLIDES -->
+            <div class="carousel-track" id="track">
+
+                <div class="benefit">Profesionales capacitados: enfermeros, cuidadores y nutricionistas.</div>
+                <div class="benefit">Cuidado personalizado para todas las edades.</div>
+                <div class="benefit">Apoyo emocional y compañía.</div>
+                <div class="benefit">Asistencia en el hogar y en internaciones.</div>
+                <div class="benefit">Supervisión y seguimiento continuo.</div>
+                <div class="benefit">Atención en Montevideo, Canelones y alrededores.</div>
+
+            </div>
+        </div>
+
+        <!-- DOTS -->
+        <div class="dots" id="dots"></div>
+
+    </div>
+</section>
+
+</body>
+</html>
+
+
+
+<script>
+    const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav");
+
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+
+
+
+
+// 
+
+
+const track = document.getElementById("track");
+const nextBtn = document.getElementById("nextBtn");
+const dotsContainer = document.getElementById("dots");
+
+const slides = document.querySelectorAll(".benefit");
+
+let index = 0;
+let interval;
+
+/* CREAR DOTS */
+slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+/* ACTUALIZAR SLIDE */
+function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+}
+
+/* SIGUIENTE (LOOP INFINITO) */
+function nextSlide() {
+    index++;
+
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    updateCarousel();
+}
+
+/* AUTOPLAY */
+function startAutoplay() {
+    interval = setInterval(nextSlide, 4000);
+}
+
+/* REINICIAR AUTOPLAY */
+function resetAutoplay() {
+    clearInterval(interval);
+    startAutoplay();
+}
+
+/* CLICK MANUAL */
+nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoplay(); // 🔥 UX PRO
+});
+
+/* INICIAR */
+startAutoplay();
+
+
+
+// 
+
+let startX = 0;
+let endX = 0;
+
+const carousel = document.querySelector(".carousel");
+
+/* TOUCH START */
+carousel.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+
+/* TOUCH MOVE */
+carousel.addEventListener("touchmove", (e) => {
+    endX = e.touches[0].clientX;
+});
+
+/* TOUCH END */
+carousel.addEventListener("touchend", () => {
+    let diff = startX - endX;
+
+    if (Math.abs(diff) > 50) { // sensibilidad
+        if (diff > 0) {
+            // 👉 swipe izquierda (siguiente)
+            nextSlide();
+        } else {
+            // 👉 swipe derecha (anterior)
+            prevSlide();
+        }
+
+        resetAutoplay(); // 🔥 UX pro
+    }
+});
+
+function prevSlide() {
+    index--;
+
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+
+    updateCarousel();
+}
+
+</script>
