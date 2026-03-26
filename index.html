@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visol</title>
     <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://kit.fontawesome.com/f3120e81c2.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -18,7 +21,7 @@
         <nav id="nav">
             <ul>
                 <li id="activeCI"><a href="#">INICIO</a></li>
-                <li><a href="#">SERVICIOS</a></li>
+                <li><a href="#1">SERVICIOS</a></li>
                 <li><a href="#">CONTACTO</a></li>
                 <li><a href="#">SOBRE NOSOTROS</a></li>
             </ul>
@@ -31,7 +34,7 @@
 </header>
 
 
-<a href="https://wa.me/598XXXXXXXX?text=Hola%20quiero%20más%20información"
+<a href="https://wa.me/59892594442?text=Hola%20quiero%20más%20información!"
    class="whatsapp-float"
    target="_blank">
    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
@@ -51,7 +54,7 @@
 </section>
 
 <!-- SECCIÓN QUIÉNES SOMOS -->
-<section class="about">
+<section class="about" id="1">
     <h2>¿Quiénes Somos?</h2>
     <p>
         En Visol brindamos cuidado profesional y humano para personas de
@@ -69,8 +72,9 @@
                     <h3>Cuidado Domiciliario</h3>
                     <p>Acompañamiento y asistencia en el hogar por horas.</p>
                 </div>
-
-                <div id="bVMS"><button>Ver Más</button></div>
+                <div class="bVMS">
+                    <button data-index="0">Ver Más</button>
+                </div>
             </div>
 
             <div class="service-card">
@@ -79,8 +83,9 @@
                     <h3>Enfermería</h3>
                     <p>Atención profesional de enfermería en domicilio.</p>
                 </div>
-
-                <div id="bVMS"><button>Ver Más</button></div>
+                <div class="bVMS">
+                    <button data-index="1">Ver Más</button>
+                </div>
             </div>
 
             <div class="service-card">
@@ -89,8 +94,9 @@
                     <h3>Acompañamiento</h3>
                     <p>Compañía y apoyo emocional en momentos de soledad.</p>
                 </div>
-                
-                <div id="bVMS"><button>Ver Más</button></div>
+                <div class="bVMS">
+                    <button data-index="2">Ver Más</button>
+                </div>
             </div>
 
             <div class="service-card">
@@ -99,13 +105,33 @@
                     <h3>Apoyo Integral</h3>
                     <p>Asistencia personalizada, con enfermeros y nutricionistas.</p>
                 </div>
-                
-                <div id="bVMS"><button>Ver Más</button></div>
+                <div class="bVMS">
+                    <button data-index="3">Ver Más</button>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <img id="modal-img" src="" alt="Servicio">
+
+        <h2 id="modal-title"></h2>
+
+        <div id="modal-text"></div>
+
+        <a id="whatsapp-btn" href="#" target="_blank" class="modal-btn">
+            Consultar por WhatsApp
+        </a>
+
+    </div>
+</div>
 
 
 <section class="benefits">
@@ -121,12 +147,12 @@
             <!-- SLIDES -->
             <div class="carousel-track" id="track">
 
-                <div class="benefit">Profesionales capacitados: enfermeros, cuidadores y nutricionistas.</div>
-                <div class="benefit">Cuidado personalizado para todas las edades.</div>
-                <div class="benefit">Apoyo emocional y compañía.</div>
-                <div class="benefit">Asistencia en el hogar y en internaciones.</div>
-                <div class="benefit">Supervisión y seguimiento continuo.</div>
-                <div class="benefit">Atención en Montevideo, Canelones y alrededores.</div>
+                <div class="benefit"><i class="fa-solid fa-user-doctor"></i>Enfermeros, cuidadores y nutricionistas.</div>
+                <div class="benefit"><i class="fa-solid fa-hospital-user"></i>Cuidado personalizado para todas las edades.</div>
+                <div class="benefit"><i class="fa-solid fa-user-nurse"></i>Apoyo emocional y compañía.</div>
+                <div class="benefit"><i class="fa-solid fa-house-medical"></i>Asistencia en el hogar y en internaciones.</div>
+                <div class="benefit"><i class="fa-solid fa-stethoscope"></i>Supervisión y seguimiento continuo.</div>
+                <div class="benefit"><i class="fa-solid fa-briefcase-medical"></i>Atención en Montevideo, Canelones y alrededores.</div>
 
             </div>
         </div>
@@ -137,20 +163,179 @@
     </div>
 </section>
 
+<!--  -->
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- COLUMNA 1 -->
+        <div class="footer-col">
+            <h3>Visol</h3>
+            <p>
+                Brindamos cuidado profesional y humano para personas mayores,
+                asegurando bienestar, compañía y atención personalizada.
+            </p>
+        </div>
+
+        <!-- COLUMNA 2 -->
+        <div class="footer-col">
+            <h3>Misión</h3>
+            <p>
+                Ofrecer servicios de cuidado con calidad humana,
+                priorizando la salud, seguridad y bienestar de cada persona.
+            </p>
+
+            <h3 style="margin-top:15px;">Visión</h3>
+            <p>
+                Ser referentes en el cuidado de personas,
+                destacándonos por nuestro compromiso y profesionalismo.
+            </p>
+        </div>
+
+        <!-- COLUMNA 3 -->
+        <div class="footer-col">
+            <h3>Contacto</h3>
+
+            <ul class="footer-contact">
+                <li><i class="fas fa-phone"></i> +598 92 594 442</li>
+                <li><i class="fas fa-envelope"></i> Visol.cuidados@gmail.com</li>
+                <li><i class="fab fa-facebook"></i> Visol.uy</li>
+                <li><i class="fab fa-instagram"></i> Visol.uy</li>
+            </ul>
+        </div>
+
+        <!-- COLUMNA 4 -->
+        <div class="footer-col">
+            <h3>Trabajá con nosotros</h3>
+
+            <form class="footer-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo" required>
+                <input type="file" style="margin-left: -10px; border-radius: 15px;" required>
+                <button type="submit">Enviar CV</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+        <p>© 2026 Prograsan - Todos los derechos reservados</p>
+    </div>
+</footer>
+
 </body>
 </html>
 
 
 
 <script>
-    const toggle = document.getElementById("menu-toggle");
+const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 
 toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
+  nav.classList.toggle("active");
 });
 
 
+
+// 
+
+
+const buttons = document.querySelectorAll(".bVMS button");
+const modal = document.getElementById("modal");
+const closeBtn = document.querySelector(".close");
+
+const title = document.getElementById("modal-title");
+const text = document.getElementById("modal-text");
+const img = document.getElementById("modal-img");
+const whatsappBtn = document.getElementById("whatsapp-btn");
+
+const phone = "59812345678"; // ← PONÉ TU NÚMERO REAL
+
+const data = [
+    {
+        title: "Cuidado Domiciliario",
+        img: "imagenes/servicio_img1.jpg",
+        text: `
+            <p>Brindamos asistencia personalizada en el hogar para mejorar la calidad de vida.</p>
+
+            <br>
+
+            <ul>
+                <li>✔ Atención diaria</li>
+                <li>✔ Higiene personal</li>
+                <li>✔ Alimentación asistida</li>
+                <li>✔ Acompañamiento constante</li>
+            </ul>
+        `
+    },
+    {
+        title: "Enfermería",
+        img: "imagenes/servicio_img2.jpg",
+        text: `
+            <p>Servicio profesional con personal capacitado.</p>
+<br>
+            <ul>
+                <li>✔ Control de signos vitales</li>
+                <li>✔ Administración de medicación</li>
+                <li>✔ Curaciones</li>
+                <li>✔ Seguimiento clínico</li>
+            </ul>
+        `
+    },
+    {
+        title: "Acompañamiento",
+        img: "imagenes/servicio_img3.jpg",
+        text: `
+            <p>Apoyo emocional y compañía para el bienestar del paciente.</p>
+<br>
+            <ul>
+                <li>✔ Conversación y compañía</li>
+                <li>✔ Estimulación cognitiva</li>
+                <li>✔ Paseos</li>
+                <li>✔ Apoyo emocional</li>
+            </ul>
+        `
+    },
+    {
+        title: "Apoyo Integral",
+        img: "imagenes/servicio_img4.jpg",
+        text: `
+            <p>Un servicio completo adaptado a cada necesidad.</p>
+<br>
+            <ul>
+                <li>✔ Enfermería</li>
+                <li>✔ Nutrición</li>
+                <li>✔ Seguimiento personalizado</li>
+                <li>✔ Plan integral de cuidado</li>
+            </ul>
+        `
+    }
+];
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const index = btn.getAttribute("data-index");
+
+        title.innerText = data[index].title;
+        text.innerHTML = data[index].text;
+        img.src = data[index].img;
+
+        const message = `Hola, quiero consultar sobre ${data[index].title}`;
+        whatsappBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        modal.style.display = "flex";
+    });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+};
 
 
 // 
